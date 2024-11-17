@@ -1,0 +1,108 @@
+<?php
+session_start();
+include '../config/db.php';
+
+// Verify if the user is logged in and is a warden
+if (!isset($_SESSION['username']) || $_SESSION['role'] != 'warden') {
+    header("Location: ../index.php");
+    exit();
+}
+
+// Handle the status update of a late request
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['request_id'])) {
+    $request_id = $_POST['request_id'];
+    $status = $_POST['status'];
+
+    $stmt = $pdo->prepare("UPDATE late_requests SET status = ? WHERE id = ?");
+    $stmt->execute([$status, $request_id]);
+
+    $message = "Request status updated successfully!";
+}
+
+// Fetch all late requests with student details
+$query = "
+    SELECT lr.id, s.university_index AS student_username, lr.request_time, lr.reason, lr.status
+    FROM late_requests lr
+    JOIN students s ON lr.student_id = s.id
+";
+$stmt = $pdo->prepare($query);
+$stmt->execute();
+$late_requests = $stmt->fetchAll();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Late Attendance Requests</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            color: blue;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>View Late Attendance Requests</h1>
+    <?php if (isset($message)) { echo "<p style='color: green; text-align: center;'>$message</p>"; } ?>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Student Username</th>
+                <th>Date</th>
+                <th>Reason</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php if (count($late_requests) > 0): ?>
+                <?php foreach ($late_requests as $request): ?>
+                    <tr>
+                        <td><?php echo $request['id']; ?></td>
+                        <td><?php echo htmlspecialchars($request['student_username']); ?></td>
+                        <td><?php echo $request['request_time']; ?></td>
+                        <td><?php echo htmlspecialchars($request['reason']); ?></td>
+                        <td><?php echo htmlspecialchars($request['status']); ?></td>
+                        <td>
+                            <form method="POST" style="display: inline;">
+                                <input type="hidden" name="request_id" value="<?php echo $request['id']; ?>">
+                                <select name="status">
+                                    <option value="Pending" <?php if ($request['status'] == 'Pending') echo 'selected'; ?>>Pending</option>
+                                    <option value="Approved" <?php if ($request['status'] == 'Approved') echo 'selected'; ?>>Approved</option>
+                                    <option value="Rejected" <?php if ($request['status'] == 'Rejected') echo 'selected'; ?>>Rejected</option>
+                                </select>
+                                <button type="submit">Update</button>
+                            </form>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <tr>
+                    <td colspan="6">No late attendance requests found.</td>
+                </tr>
+            <?php endif; ?>
+        </tbody>
+    </table>
+    <a href="dashboard.php">Back to Dashboard</a>
+</body>
+</html>
