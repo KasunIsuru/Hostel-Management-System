@@ -15,15 +15,15 @@
     <h1 class="text-center mt-4">Hostel Management System</h1>
     <!-- card section  -->
 
-    <div class="container p-4">
+    <div class="container p-5">
 
         <div class="row gy-3">
             <div class="col-md-4">
                 <div class="card">
-                    <img src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="USER LOGO" height="324px">
+                    <img src="./images/img/warden.png" class="card-img-top" alt="USER LOGO" height="324px">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                         <a href="login.php?role=warden" class="btn btn-primary ">Warden Login</a>
                     </div>
                 </div>
@@ -31,10 +31,10 @@
 
             <div class="col-md-4">
                 <div class="card">
-                    <img src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="USER LOGO" height="324px">
+                    <img src="./images/img/Student.png" class="card-img-top" alt="USER LOGO" height="324px">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                         <a href="login.php?role=student" class="btn btn-primary">Student Login</a>
                     </div>
                 </div>
@@ -42,10 +42,10 @@
 
             <div class="col-md-4">
                 <div class="card">
-                    <img src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="USER LOGO" height="324px">
+                    <img src="./images/img/Security.png" class="card-img-top" alt="USER LOGO" height="324px">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                         <a href="login.php?role=security" class="btn btn-primary">Security Login</a>
                     </div>
                 </div>
@@ -53,10 +53,6 @@
         </div>
 
     </div>
-
-    <!-- <a href="login.php?role=warden">Warden Login</a><br> -->
-    <!-- <a href="login.php?role=student">Student Login</a><br> -->
-    <!-- <a href="login.php?role=security">Security Login</a> -->
 
     <?php include 'footer.php'; ?>
 </body>
