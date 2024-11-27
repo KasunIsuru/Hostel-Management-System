@@ -59,7 +59,7 @@
 </head>
 <body>
     <header>
-     <img src="../assets/img/logo-web.png" alt="Logo" class="logo">
+     <img src="./assets/img/logo-web.png" alt="Logo" class="logo">
         <nav class="nav-links">
             <a href="#home">Home</a>
             <a href="#about">About</a>
