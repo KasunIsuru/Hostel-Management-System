@@ -81,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <form>
                 <div class="mb-3">
                     <label for="email" class="form-label"><b>Email</b></label>
-                    <input type="text" class="form-control" id="email" placeholder="Enter Email" required>
+                    <input type="text" class="form-control" id="username" placeholder="Enter Email" required>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label"><b>Password</b></label>
