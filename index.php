@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>HMS</title>
+    <title>HMS kasun</title>
 </head>
 <body>
     <?php include 'header.php'; ?>
