@@ -95,11 +95,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </body>
 
 </html>
-
-
-<!-- <h2 class="text-center">Login</h2>
-    <form method="POST">
-        Username: <input type="text" name="username" required><br>
-        Password: <input type="password" name="password" required><br>
-        <button type="submit">Login</button>
-    </form> -->
