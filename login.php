@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="bg-img">
         <div class="form-container">
             <h1 class="text-center mb-4">Login</h1>
-            <form>
+            <form action="./functions/warden/wardenLogin.php" method="get">
                 <div class="mb-3">
                     <label for="email" class="form-label"><b>Email</b></label>
                     <input type="text" class="form-control" id="username" placeholder="Enter Email" required>
