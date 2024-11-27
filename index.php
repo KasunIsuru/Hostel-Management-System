@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hostel Management System master update</title>
+    <title>HMS</title>
 </head>
 <body>
     <?php include 'header.php'; ?>
