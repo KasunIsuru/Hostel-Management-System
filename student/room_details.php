@@ -2,17 +2,46 @@
 session_start();
 include '../config/db.php';
 
-if ($_SESSION['role'] != 'student') {
+// Ensure the logged-in user is a student
+if (!isset($_SESSION['username']) || $_SESSION['role'] != 'student') {
     header("Location: ../login.php");
     exit();
 }
 
-$student_id = $_SESSION['user_id'];
+// Fetch the logged-in student's university index
+$username = $_SESSION['username']; // University index stored in the session
 
-// Fetch room details
-$stmt = $pdo->prepare("SELECT rooms.* FROM students JOIN rooms ON students.room_number = rooms.room_number WHERE students.id = ?");
-$stmt->execute([$student_id]);
-$room = $stmt->fetch();
+try {
+    // Query to get the student's room details
+    $stmt = $pdo->prepare("
+        SELECT r.room_id, r.room_number 
+        FROM students s
+        INNER JOIN rooms r ON s.room_number = r.room_number
+        WHERE s.university_index = ?
+    ");
+    $stmt->execute([$username]);
+    $room = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$room) {
+        echo "<p style='color: red;'>Room details not found for this student.</p>";
+        exit();
+    }
+
+    $room_id = $room['room_id'];
+    $room_number = $room['room_number'];
+
+    // Query to get furniture details for the room
+    $stmt = $pdo->prepare("
+        SELECT furniture_type, furniture_id 
+        FROM room_furniture
+        WHERE room_id = ?
+    ");
+    $stmt->execute([$room_id]);
+    $furniture_details = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (Exception $e) {
+    echo "<p style='color: red;'>Error: " . $e->getMessage() . "</p>";
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -20,12 +49,60 @@ $room = $stmt->fetch();
 <head>
     <meta charset="UTF-8">
     <title>View Room Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+        }
+        .back-btn {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h2>Your Room Details</h2>
-    <p><strong>Room Number:</strong> <?= $room['room_number'] ?></p>
-    <p><strong>Capacity:</strong> <?= $room['capacity'] ?></p>
-    <p><strong>Occupied:</strong> <?= $room['occupied'] ?></p>
-    <br><a href="dashboard.php">Back to Dashboard</a>
+    <div class="container">
+        <h2>Room Details</h2>
+        <table>
+            <tr>
+                <th>Room Number</th>
+                <td><?php echo htmlspecialchars($room_number); ?></td>
+            </tr>
+        </table>
+
+        <?php if (!empty($furniture_details)): ?>
+            <h3>Furniture Details</h3>
+            <table>
+                <tr>
+                    <th>Furniture Type</th>
+                    <th>Furniture ID</th>
+                </tr>
+                <?php foreach ($furniture_details as $furniture): ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($furniture['furniture_type']); ?></td>
+                        <td><?php echo htmlspecialchars($furniture['furniture_id']); ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        <?php else: ?>
+            <p>No furniture details available for this room.</p>
+        <?php endif; ?>
+
+        <a class="back-btn" href="dashboard.php">Back to Dashboard</a>
+    </div>
 </body>
 </html>
