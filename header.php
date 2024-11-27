@@ -22,7 +22,7 @@
         }
 
         .logo {
-            width: 330px;
+            width: auto;
             height: 80px;
             padding: 4px;
         }
