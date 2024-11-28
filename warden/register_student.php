@@ -61,6 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Register Student</title>
 </head>
 <body>
+<?php include 'header.php'; ?>
     <h2>Register New Student</h2>
     <form method="POST">
         Full Name: <input type="text" name="full_name" required><br>
@@ -81,5 +82,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <button type="submit">Register Student</button>
     </form>
     <br><a href="dashboard.php">Back to Dashboard</a>
+    <?php include 'footer.php'; ?>
 </body>
 </html>

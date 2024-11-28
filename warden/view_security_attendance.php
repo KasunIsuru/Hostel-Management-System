@@ -1,5 +1,6 @@
 <?php
 session_start();
+$cssPath="../styles/styles.css";
 include '../config/db.php';
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] != 'warden') {
@@ -12,17 +13,18 @@ $stmt = $pdo->prepare("SELECT * FROM security_attendance ORDER BY date DESC, id 
 $stmt->execute();
 $records = $stmt->fetchAll();
 ?>
-<?php include dirname(__DIR__).'/header.php'; ?>
+<?php include 'header.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>View Security Attendance</title>
+    <link rel="stylesheet" href="<?php echo $cssPath; ?>">
 </head>
 <body>
     <section>
         <h1>Security Attendance Records</h1>
-        <table border="1">
+        <table>
             <thead>
                 <tr>
                     <th>ID</th>
@@ -44,10 +46,10 @@ $records = $stmt->fetchAll();
                 <?php endforeach; ?>
             </tbody>
         </table>
-        <br><a href="Security_attendance.php">Back</a>
+        <button><a href="Security_attendance.php">Back</a></button>
         <br><a href="dashboard.php">Back to Dashboard</a>
     </section>
+    <?php include 'footer.php'; ?>
 </body>
 </html>
 
-<?php include dirname(__DIR__).'/footer.php'; ?>

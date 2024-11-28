@@ -47,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Security Attendance</title>
 </head>
 <body>
+    <?php include 'header.php'; ?>
     <h1>Security Attendance</h1>
     <?php if ($message): ?>
         <p style="color: green;"><?= htmlspecialchars($message) ?></p>
@@ -71,5 +72,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <br>
     <a href="view_security_attendance.php">View All Security Attendance</a>
     <br><a href="dashboard.php">Back to Dashboard</a>
+    <?php include 'footer.php'; ?>
 </body>
 </html>
