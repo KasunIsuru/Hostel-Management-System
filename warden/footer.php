@@ -83,7 +83,7 @@
     <footer>
         <div class="footer-content">
             <div>
-            <img src="./images/img/logo uoc.png" alt="Footer Logo" class="footer-logo">    
+            <img src="../images/img/logo uoc.png" alt="Footer Logo" class="footer-logo">    
                 <div class="social-links">
                     <a href="#twitter">Twitter</a>
                     <a href="#facebook">Facebook</a>
