@@ -1,6 +1,7 @@
-<!-- header.html -->
+header.html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,9 +58,10 @@
         }
     </style>
 </head>
+
 <body>
     <header>
-     <img src="../images/img/logo-web.png" alt="Logo" class="logo">
+        <img src="./images/img/logo-web.png" alt="Logo" class="logo">
         <nav class="nav-links">
             <a href="#home">Home</a>
             <a href="#about">About</a>
@@ -68,4 +70,5 @@
         </nav>
     </header>
 </body>
+
 </html>

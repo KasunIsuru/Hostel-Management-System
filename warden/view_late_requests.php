@@ -1,6 +1,6 @@
 <?php
 session_start();
-$cssPath="../styles/styles.css";
+$cssPath = "../styles/styles.css";
 include '../config/db.php';
 
 // Verify if the user is logged in and is a warden
@@ -33,13 +33,13 @@ $late_requests = $stmt->fetchAll();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    
+
     <title>View Late Attendance Requests</title>
     <link rel="stylesheet" href="<?php echo $cssPath; ?>">
     <style>
-     
         a {
             display: block;
             text-align: center;
@@ -47,10 +47,13 @@ $late_requests = $stmt->fetchAll();
         }
     </style>
 </head>
+
 <body>
     <?php include 'header.php'; ?>
     <h1>View Late Attendance Requests</h1>
-    <?php if (isset($message)) { echo "<p style='color: green; text-align: center;'>$message</p>"; } ?>
+    <?php if (isset($message)) {
+        echo "<p style='color: green; text-align: center;'>$message</p>";
+    } ?>
     <table>
         <thead>
             <tr>
@@ -94,4 +97,5 @@ $late_requests = $stmt->fetchAll();
     <a href="dashboard.php">Back to Dashboard</a>
     <?php include 'footer.php'; ?>
 </body>
+
 </html>
