@@ -39,6 +39,10 @@ $late_requests = $stmt->fetchAll();
 
     <title>View Late Attendance Requests</title>
     <link rel="stylesheet" href="<?php echo $cssPath; ?>">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
     <style>
         a {
             display: block;
@@ -77,12 +81,12 @@ $late_requests = $stmt->fetchAll();
                         <td>
                             <form method="POST" style="display: inline;">
                                 <input type="hidden" name="request_id" value="<?php echo $request['id']; ?>">
-                                <select name="status">
+                                <select class="form-select" name="status">
                                     <option value="Pending" <?php if ($request['status'] == 'Pending') echo 'selected'; ?>>Pending</option>
                                     <option value="Approved" <?php if ($request['status'] == 'Approved') echo 'selected'; ?>>Approved</option>
                                     <option value="Rejected" <?php if ($request['status'] == 'Rejected') echo 'selected'; ?>>Rejected</option>
                                 </select>
-                                <button type="submit">Update</button>
+                                <button class="btn btn-primary" type="submit">Update</button>
                             </form>
                         </td>
                     </tr>
@@ -94,7 +98,12 @@ $late_requests = $stmt->fetchAll();
             <?php endif; ?>
         </tbody>
     </table>
-    <a href="dashboard.php">Back to Dashboard</a>
+
+    <div class="d-flex justify-content-center">
+        <a class="btn btn-danger" href="dashboard.php">Back to Dashboard</a>
+    </div>
+
+
     <?php include 'footer.php'; ?>
 </body>
 
