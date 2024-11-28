@@ -2,7 +2,7 @@
 $host = 'localhost';
 $db = 'hostel_management';
 $user = 'root';
-$pass = 'root';
+$pass = '';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
@@ -10,4 +10,3 @@ try {
 } catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
 }
-?>
