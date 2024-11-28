@@ -99,7 +99,7 @@ $late_requests = $stmt->fetchAll();
         </tbody>
     </table>
 
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify=content-center">
         <a class="btn btn-danger" href="dashboard.php">Back to Dashboard</a>
     </div>
 
