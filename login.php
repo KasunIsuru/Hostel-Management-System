@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <?php include 'header.php'; ?>
 
     <div class="bg-img">
-        <div class="form    -container">
+        <div class="form-container">
             <h1 class="text-center mb-4">Login</h1>
 
             <form method="POST">
