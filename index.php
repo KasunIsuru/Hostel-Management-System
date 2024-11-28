@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta charset="UTF-8">
@@ -9,10 +10,11 @@
 
     <title>Hostel Management System</title>
 </head>
+
 <body>
     <?php include 'header.php'; ?>
-    <title>Hostel Management System</title>
-    
+    <h1 class="text-center mt-4">Hostel Management System</h1>
+
 
     <div class="container p-5">
 
@@ -48,4 +50,5 @@
     </div>
     <?php include 'footer.php'; ?>
 </body>
+
 </html>
