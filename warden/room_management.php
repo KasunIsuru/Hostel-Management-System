@@ -95,7 +95,7 @@ $rooms = $stmt->fetchAll();
     <form method="POST">
         <label for="room_number">Room Number:</label>
         <input type="text" id="room_number" name="room_number" required>
-        <button type="submit" name="create_room">Create Room</button>
+        <button class="btn btn-primary" type="submit" name="create_room">Create Room</button>
     </form>
 
     <h3>Add Furniture</h3>
@@ -115,14 +115,14 @@ $rooms = $stmt->fetchAll();
         </select><br>
         <label for="furniture_id">Furniture ID:</label>
         <input type="text" id="furniture_id" name="furniture_id" required>
-        <button type="submit" name="add_furniture">Add Furniture</button>
+        <button class="btn btn-primary" type="submit" name="add_furniture">Add Furniture</button>
     </form>
 
     <h3>View Room Furniture</h3>
     <form method="GET">
         <label for="search_room">Room Number:</label>
         <input type="text" id="search_room" name="search_room" value="<?= $_GET['search_room'] ?? '' ?>">
-        <button type="submit">Search</button>
+        <button class="btn btn-primary" type="submit">Search</button>
     </form>
 
     <?php if (!empty($furniture_details)): ?>
@@ -160,6 +160,7 @@ $rooms = $stmt->fetchAll();
             </tr>
         <?php endforeach; ?>
     </table>
+
     <div class="d-flex justify=content-center">
         <a class="btn btn-danger" href="dashboard.php">Back to Dashboard</a>
     </div>
