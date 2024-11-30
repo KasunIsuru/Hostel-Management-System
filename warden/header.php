@@ -21,7 +21,9 @@
         }
 
         .logo {
-            width: 150px;
+            width: auto;
+            height: 65px;
+            padding: 4px;
         }
 
         .nav-links {

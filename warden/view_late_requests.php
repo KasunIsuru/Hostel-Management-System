@@ -54,7 +54,7 @@ $late_requests = $stmt->fetchAll();
 
 <body>
     <?php include 'header.php'; ?>
-    <h1>View Late Attendance Requests</h1>
+    <h1 class="text-center mt-4">View Late Attendance Requests</h1>
     <?php if (isset($message)) {
         echo "<p style='color: green; text-align: center;'>$message</p>";
     } ?>

@@ -61,12 +61,28 @@ $stmt = $pdo->query("SELECT * FROM rooms ORDER BY room_number");
 $rooms = $stmt->fetchAll();
 ?>
 
+
+<!-- front end -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Room Management</title>
+
+    <link rel="stylesheet" href="<?php echo $cssPath; ?>">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <style>
+        a {
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+        }
+    </style>
 </head>
+
 <body>
     <h2>Room Management</h2>
     <?php if ($message): ?>
@@ -123,20 +139,31 @@ $rooms = $stmt->fetchAll();
     <?php endif; ?>
 
     <h3>Room List</h3>
-    <table border="1">
-        <tr>
-            <th>Room Number</th>
-            <th>Capacity</th>
-            <th>Occupied</th>
-        </tr>
+
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Room Number</th>
+                <th>Capacity</th>
+                <th>Occupied</th>
+            </tr>
+        </thead>
+
         <?php foreach ($rooms as $room): ?>
-        <tr>
-            <td><?= htmlspecialchars($room['room_number']) ?></td>
-            <td><?= htmlspecialchars($room['capacity']) ?></td>
-            <td><?= htmlspecialchars($room['occupied']) ?></td>
-        </tr>
+            <tr>
+                <td><?= htmlspecialchars($room['room_number']) ?></td>
+                <td><?= htmlspecialchars($room['capacity']) ?></td>
+                <td><?= htmlspecialchars($room['occupied']) ?></td>
+            </tr>
         <?php endforeach; ?>
     </table>
-    <br><a href="dashboard.php">Back to Dashboard</a>
+    <div class="d-flex justify=content-center">
+        <a class="btn btn-danger" href="dashboard.php">Back to Dashboard</a>
+    </div>
+
+    <?php include 'footer.php'; ?>
 </body>
+
 </html>
