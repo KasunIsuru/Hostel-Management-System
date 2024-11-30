@@ -146,9 +146,9 @@ $rooms = $stmt->fetchAll();
     <table>
         <thead>
             <tr>
-                <th>Room Number</th>
-                <th>Capacity</th>
-                <th>Occupied</th>
+                <th class="text-center">Room Number</th>
+                <th class="text-center">Capacity</th>
+                <th class="text-center">Occupied</th>
             </tr>
         </thead>
 

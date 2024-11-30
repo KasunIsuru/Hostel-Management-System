@@ -58,15 +58,16 @@ $late_requests = $stmt->fetchAll();
     <?php if (isset($message)) {
         echo "<p style='color: green; text-align: center;'>$message</p>";
     } ?>
+
     <table>
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Student Username</th>
-                <th>Date</th>
-                <th>Reason</th>
-                <th>Status</th>
-                <th>Action</th>
+                <th class="text-center">ID</th>
+                <th class="text-center">Student Username</th>
+                <th class="text-center">Date</th>
+                <th class="text-center">Reason</th>
+                <th class="text-center">Status</th>
+                <th class="text-center">Action</th>
             </tr>
         </thead>
         <tbody>
