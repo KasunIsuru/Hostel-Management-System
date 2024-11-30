@@ -1,6 +1,8 @@
 <?php
 session_start();
+$cssPath = "../styles/styles.css";
 include '../config/db.php';
+
 
 if ($_SESSION['role'] != 'warden') {
     header("Location: ../login.php");
@@ -69,7 +71,6 @@ $rooms = $stmt->fetchAll();
 <head>
     <meta charset="UTF-8">
     <title>Room Management</title>
-
     <link rel="stylesheet" href="<?php echo $cssPath; ?>">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -84,7 +85,8 @@ $rooms = $stmt->fetchAll();
 </head>
 
 <body>
-    <h2>Room Management</h2>
+    <?php include 'header.php'; ?>
+    <h1 class="text-center mt-4">Room Management</h1>
     <?php if ($message): ?>
         <p style="color: green;"><?= htmlspecialchars($message) ?></p>
     <?php endif; ?>
@@ -122,6 +124,7 @@ $rooms = $stmt->fetchAll();
         <input type="text" id="search_room" name="search_room" value="<?= $_GET['search_room'] ?? '' ?>">
         <button type="submit">Search</button>
     </form>
+
     <?php if (!empty($furniture_details)): ?>
         <h4>Furniture Details for Room <?= htmlspecialchars($_GET['search_room']) ?>:</h4>
         <table border="1">
@@ -138,10 +141,8 @@ $rooms = $stmt->fetchAll();
         </table>
     <?php endif; ?>
 
-    <h3>Room List</h3>
-
-
-
+    <!-- room list table -->
+    <h3 class="text-center mt-4">Room List</h3>
     <table>
         <thead>
             <tr>
