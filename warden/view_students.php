@@ -1,5 +1,6 @@
 <?php
 session_start();
+$cssPath = "../styles/styles.css";
 include '../config/db.php';
 
 if ($_SESSION['role'] != 'warden') {
@@ -77,40 +78,54 @@ $students = $stmt->fetchAll();
 
 <body>
     <?php include 'header.php'; ?>
+    <div class="container">
 
+        <h1 class="text-center mb-4">View Students</h1>
 
-    <h2 class="text-center mb-4">View/Search Students</h2>
-
-    <div class="card mb-4">
-        <div class="card-body">
-            <form method="GET" class="form-inline">
-                <input type="text" name="search" class="form-control mr-2" placeholder="Enter name or university index" required value="<?= $search ?>">
-                <button type="submit">Search</button>
-            </form>
+        <!-- search student -->
+        <div class="card mb-4">
+            <div class="card-header">Search Students</div>
+            <div class="card-body">
+                <form method="GET" class="form-inline">
+                    <input type="text" name="search" class="form-control mr-3" placeholder="Enter name or university index" required value="<?= $search ?>">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
         </div>
-    </div>
 
-    <table border="1">
-        <tr>
-            <th>Full Name</th>
-            <th>University Index</th>
-            <th>Room Number</th>
-            <th>Student Status</th>
-            <th>Actions</th>
-        </tr>
-        <?php foreach ($students as $student): ?>
-            <tr>
-                <td><?= htmlspecialchars($student['full_name']) ?></td>
-                <td><?= htmlspecialchars($student['university_index']) ?></td>
-                <td><?= htmlspecialchars($student['room_number']) ?></td>
-                <td><?= htmlspecialchars($student['status']) ?></td>
-                <td><a href="update_student.php?id=<?= $student['id'] ?>">Update</a></td>
-            </tr>
-        <?php endforeach; ?>
-    </table>
+        <!-- Student table -->
+        <div class="card mb-4">
+            <div class="card-body">
 
-    <div class="text-center">
-        <a href="dashboard.php" class="btn btn-danger">Back to Dashboard</a>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Full Name</th>
+                            <th>University Index</th>
+                            <th>Room Number</th>
+                            <th>Student Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($students as $student): ?>
+                            <tr>
+                                <td><?= htmlspecialchars($student['full_name']) ?></td>
+                                <td><?= htmlspecialchars($student['university_index']) ?></td>
+                                <td><?= htmlspecialchars($student['room_number']) ?></td>
+                                <td><?= htmlspecialchars($student['status']) ?></td>
+                                <td><a href="update_student.php?id=<?= $student['id'] ?>" class="btn btn-primary">Update</a></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a href="dashboard.php" class="btn btn-danger">Back to Dashboard</a>
+        </div>
     </div>
     <?php include 'footer.php'; ?>
 
