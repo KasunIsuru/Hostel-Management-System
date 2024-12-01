@@ -44,66 +44,98 @@ $late_requests = $stmt->fetchAll();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <style>
-        a {
-            display: block;
+        .container {
+            max-width: auto;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th,
+        table td {
+            padding: 10px;
             text-align: center;
-            margin: 20px auto;
+            border: 1px solid #ddd;
+        }
+
+        .message {
+            color: green;
+        }
+
+        .card-header {
+            color: #660097;
+            font-weight: bold;
+
         }
     </style>
 </head>
 
 <body>
     <?php include 'header.php'; ?>
-    <h1 class="text-center mt-4">View Late Attendance Requests</h1>
-    <?php if (isset($message)) {
-        echo "<p style='color: green; text-align: center;'>$message</p>";
-    } ?>
 
-    <table>
-        <thead>
-            <tr>
-                <th class="text-center">ID</th>
-                <th class="text-center">Student Username</th>
-                <th class="text-center">Date</th>
-                <th class="text-center">Reason</th>
-                <th class="text-center">Status</th>
-                <th class="text-center">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php if (count($late_requests) > 0): ?>
-                <?php foreach ($late_requests as $request): ?>
-                    <tr>
-                        <td><?php echo $request['id']; ?></td>
-                        <td><?php echo htmlspecialchars($request['student_username']); ?></td>
-                        <td><?php echo $request['request_time']; ?></td>
-                        <td><?php echo htmlspecialchars($request['reason']); ?></td>
-                        <td><?php echo htmlspecialchars($request['status']); ?></td>
-                        <td>
-                            <form method="POST" style="display: inline;">
-                                <input type="hidden" name="request_id" value="<?php echo $request['id']; ?>">
-                                <select class="form-select" name="status">
-                                    <option value="Pending" <?php if ($request['status'] == 'Pending') echo 'selected'; ?>>Pending</option>
-                                    <option value="Approved" <?php if ($request['status'] == 'Approved') echo 'selected'; ?>>Approved</option>
-                                    <option value="Rejected" <?php if ($request['status'] == 'Rejected') echo 'selected'; ?>>Rejected</option>
-                                </select>
-                                <button class="btn btn-primary" type="submit">Update</button>
-                            </form>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <tr>
-                    <td colspan="6">No late attendance requests found.</td>
-                </tr>
-            <?php endif; ?>
-        </tbody>
-    </table>
+    <div class="container">
+        <h1 class="text-center mb-4">View Late Attendance Requests</h1>
 
-    <div class="d-flex justify=content-center">
-        <a class="btn btn-danger" href="dashboard.php">Back to Dashboard</a>
+        <?php if ($message): ?>
+            <div class="alert alert-success text-center">
+                <?= htmlspecialchars($message) ?>
+            </div>
+        <?php endif; ?>
+
+        <!-- Late attendance -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Student Username</th>
+                            <th>Date</th>
+                            <th>Reason</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if (count($late_requests) > 0): ?>
+                            <?php foreach ($late_requests as $request): ?>
+                                <tr>
+                                    <td><?php echo $request['id']; ?></td>
+                                    <td><?php echo htmlspecialchars($request['student_username']); ?></td>
+                                    <td><?php echo $request['request_time']; ?></td>
+                                    <td><?php echo htmlspecialchars($request['reason']); ?></td>
+                                    <td><?php echo htmlspecialchars($request['status']); ?></td>
+                                    <td>
+                                        <form method="POST" style="display: inline;">
+                                            <input type="hidden" name="request_id" value="<?php echo $request['id']; ?>">
+                                            <select class="form-select" name="status">
+                                                <option value="Pending" <?php if ($request['status'] == 'Pending') echo 'selected'; ?>>Pending</option>
+                                                <option value="Approved" <?php if ($request['status'] == 'Approved') echo 'selected'; ?>>Approved</option>
+                                                <option value="Rejected" <?php if ($request['status'] == 'Rejected') echo 'selected'; ?>>Rejected</option>
+                                            </select>
+                                            <button class="btn btn-primary" type="submit">Update</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td colspan="6">No late attendance requests found.</td>
+                            </tr>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a href="dashboard.php" class="btn btn-danger">Back to Dashboard</a>
+        </div>
     </div>
-
 
     <?php include 'footer.php'; ?>
 </body>
