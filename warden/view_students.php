@@ -43,17 +43,53 @@ $students = $stmt->fetchAll();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+    <style>
+        .container {
+            max-width: auto;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th,
+        table td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .message {
+            color: green;
+        }
+
+        .card-header {
+            color: #660097;
+            font-weight: bold;
+
+        }
+    </style>
 </head>
 
 
 <body>
     <?php include 'header.php'; ?>
 
-    <h2>View/Search Students</h2>
-    <form method="GET">
-        <input type="text" name="search" placeholder="Enter name or university index" value="<?= $search ?>">
-        <button type="submit">Search</button>
-    </form>
+
+    <h2 class="text-center mb-4">View/Search Students</h2>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="GET" class="form-inline">
+                <input type="text" name="search" class="form-control mr-2" placeholder="Enter name or university index" required value="<?= $search ?>">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+
     <table border="1">
         <tr>
             <th>Full Name</th>
