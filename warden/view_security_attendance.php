@@ -61,33 +61,41 @@ $records = $stmt->fetchAll();
 
 <body>
     <?php include 'header.php'; ?>
-    <section>
-        <h1>Security Attendance Records</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Security ID</th>
-                    <th>Date</th>
-                    <th>Check-in Time</th>
-                    <th>Check-out Time</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($records as $record): ?>
-                    <tr>
-                        <td><?= $record['id'] ?></td>
-                        <td><?= htmlspecialchars($record['security_id']) ?></td>
-                        <td><?= $record['date'] ?></td>
-                        <td><?= $record['check_in_time'] ?? 'Not Checked-in' ?></td>
-                        <td><?= $record['check_out_time'] ?? 'Not Checked-out' ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+
+    <div class="container">
+        <h1 class="text-center mb-4">Security Attendance Records</h1>
+
+        <div class="card mb-4">
+            <div class="card-header">Attendance Records</div>
+            <div class="card-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Security ID</th>
+                            <th>Date</th>
+                            <th>Check-in Time</th>
+                            <th>Check-out Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($records as $record): ?>
+                            <tr>
+                                <td><?= $record['id'] ?></td>
+                                <td><?= htmlspecialchars($record['security_id']) ?></td>
+                                <td><?= $record['date'] ?></td>
+                                <td><?= $record['check_in_time'] ?? 'Not Checked-in' ?></td>
+                                <td><?= $record['check_out_time'] ?? 'Not Checked-out' ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
         <button><a href="Security_attendance.php">Back</a></button>
         <br><a href="dashboard.php">Back to Dashboard</a>
-    </section>
+    </div>
     <?php include 'footer.php'; ?>
 </body>
 
