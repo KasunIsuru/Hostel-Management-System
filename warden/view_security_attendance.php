@@ -93,8 +93,14 @@ $records = $stmt->fetchAll();
             </div>
         </div>
 
-        <button><a href="Security_attendance.php">Back</a></button>
-        <br><a href="dashboard.php">Back to Dashboard</a>
+        <div class="text-center">
+            <a href="Security_attendance.php" class="btn btn-primary mb-4">Back</a>
+        </div>
+
+        <div class="text-center">
+            <a href="dashboard.php" class="btn btn-danger">Back to Dashboard</a>
+        </div>
+
     </div>
     <?php include 'footer.php'; ?>
 </body>
