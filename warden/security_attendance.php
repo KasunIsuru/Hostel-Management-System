@@ -87,11 +87,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <?php include 'header.php'; ?>
 
-    <div class="contrainer">
+    <div class="container">
         <h1 class="text-center mb-4">Security Attendance</h1>
 
         <?php if ($message): ?>
-            <p style="color: green;"><?= htmlspecialchars($message) ?></p>
+            <div class="alert alert-success text-center">
+                <?= htmlspecialchars($message) ?>
+            </div>
         <?php endif; ?>
 
 
@@ -128,25 +130,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         </div>
 
-        <!-- <form method="POST">
-            <label for="security_id">Security ID:</label>
-            <input type="text" id="security_id" name="security_id" required><br>
-
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date" required><br>
-
-            <label for="action">Action:</label>
-            <select id="action" name="action" required>
-                <option value="Check-in">Check-in</option>
-                <option value="Check-out">Check-out</option>
-            </select><br>
-
-            <button type="submit">Submit</button>
-        </form> -->
-
-        <br>
-        <a href="view_security_attendance.php">View All Security Attendance</a>
-        <br><a href="dashboard.php">Back to Dashboard</a>
+        <div class="text-center">
+            <a href="view_security_attendance.php" class="btn btn-primary mb-4">View All Security Attendance</a>
+        </div>
+        <div class="text-center">
+            <a href="dashboard.php" class="btn btn-danger">Back to Dashboard</a>
+        </div>
 
     </div>
     <?php include 'footer.php'; ?>
