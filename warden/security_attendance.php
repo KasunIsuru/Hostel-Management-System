@@ -82,35 +82,73 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         }
     </style>
-
 </head>
 
 <body>
     <?php include 'header.php'; ?>
-    <h1>Security Attendance</h1>
-    <?php if ($message): ?>
-        <p style="color: green;"><?= htmlspecialchars($message) ?></p>
-    <?php endif; ?>
 
-    <form method="POST">
-        <label for="security_id">Security ID:</label>
-        <input type="text" id="security_id" name="security_id" required><br>
+    <div class="contrainer">
+        <h1 class="text-center mb-4">Security Attendance</h1>
 
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date" required><br>
+        <?php if ($message): ?>
+            <p style="color: green;"><?= htmlspecialchars($message) ?></p>
+        <?php endif; ?>
 
-        <label for="action">Action:</label>
-        <select id="action" name="action" required>
-            <option value="Check-in">Check-in</option>
-            <option value="Check-out">Check-out</option>
-        </select><br>
 
-        <button type="submit">Submit</button>
-    </form>
+        <div class="card mb-4">
+            <div class="card-header">Security Attendace</div>
+            <div class="card-body">
 
-    <br>
-    <a href="view_security_attendance.php">View All Security Attendance</a>
-    <br><a href="dashboard.php">Back to Dashboard</a>
+                <table>
+                    <form method="POST">
+                        <thead>
+                            <tr>
+                                <th><label for="security_id">Security ID</label></th>
+                                <th><label for="date">Date</label></th>
+                                <th><label for="action">Action</label></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" id="security_id" class="form-control mr-2" name="security_id" required></td>
+                                <td><input type="date" id="date" class="form-control mr-2" name="date" required></td>
+                                <td><select id="action" class="form-control mr-2" name="action" required>
+                                        <option value="Check-in">Check-in</option>
+                                        <option value="Check-out">Check-out</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3"><button type="submit" class="btn btn-primary">Submit</button></td>
+                            </tr>
+                        </tbody>
+                    </form>
+                </table>
+
+            </div>
+        </div>
+
+        <!-- <form method="POST">
+            <label for="security_id">Security ID:</label>
+            <input type="text" id="security_id" name="security_id" required><br>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required><br>
+
+            <label for="action">Action:</label>
+            <select id="action" name="action" required>
+                <option value="Check-in">Check-in</option>
+                <option value="Check-out">Check-out</option>
+            </select><br>
+
+            <button type="submit">Submit</button>
+        </form> -->
+
+        <br>
+        <a href="view_security_attendance.php">View All Security Attendance</a>
+        <br><a href="dashboard.php">Back to Dashboard</a>
+
+    </div>
     <?php include 'footer.php'; ?>
 </body>
 
