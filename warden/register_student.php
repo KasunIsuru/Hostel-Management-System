@@ -7,7 +7,7 @@ if ($_SESSION['role'] != 'warden') {
     header("Location: ../login.php");
     exit();
 }
-
+$message = "";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $full_name = $_POST['full_name'];
     $address = $_POST['address'];

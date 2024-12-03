@@ -3,6 +3,7 @@ session_start();
 $cssPath = "../styles/styles.css";
 include '../config/db.php';
 
+$message = "";
 // Verify if the user is logged in and is a warden
 if (!isset($_SESSION['username']) || $_SESSION['role'] != 'warden') {
     header("Location: ../index.php");
