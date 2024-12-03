@@ -79,18 +79,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body>
-    <h2>Update Student Details</h2>
-    <form method="POST">
-        Full Name: <input type="text" name="full_name" value="<?= $student['full_name'] ?>" required><br>
-        Address: <input type="text" name="address" value="<?= $student['address'] ?>" required><br>
-        NIC: <input type="text" name="nic" value="<?= $student['nic'] ?>" required><br>
-        Phone: <input type="text" name="phone" value="<?= $student['phone'] ?>" required><br>
-        University Index: <input type="text" name="university_index" value="<?= $student['university_index'] ?>" required><br>
-        Guardian Name: <input type="text" name="guardian_name" value="<?= $student['guardian_name'] ?>" required><br>
-        Room Number: <input type="text" name="room_number" value="<?= $student['room_number'] ?>" required><br>
-        <button type="submit">Update Student</button>
-    </form>
-    <br><a href="dashboard.php">Back to Dashboard</a>
+    <?php include 'header.php'; ?>
+    <div class="container">
+        <h1 class="text-center mb-4">Update Student Details</h1>
+
+        <form method="POST">
+            Full Name: <input type="text" name="full_name" value="<?= $student['full_name'] ?>" required><br>
+            Address: <input type="text" name="address" value="<?= $student['address'] ?>" required><br>
+            NIC: <input type="text" name="nic" value="<?= $student['nic'] ?>" required><br>
+            Phone: <input type="text" name="phone" value="<?= $student['phone'] ?>" required><br>
+            University Index: <input type="text" name="university_index" value="<?= $student['university_index'] ?>" required><br>
+            Guardian Name: <input type="text" name="guardian_name" value="<?= $student['guardian_name'] ?>" required><br>
+            Room Number: <input type="text" name="room_number" value="<?= $student['room_number'] ?>" required><br>
+            <button type="submit">Update Student</button>
+        </form>
+
+        <div class="text-center">
+            <a href="dashboard.php" class="btn btn-danger">Back to Dashboard</a>
+        </div>
+
+    </div>
+    <?php include 'footer.php'; ?>
+
 </body>
 
 </html>
