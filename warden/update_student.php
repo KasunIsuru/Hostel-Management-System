@@ -83,16 +83,51 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="container">
         <h1 class="text-center mb-4">Update Student Details</h1>
 
-        <form method="POST">
-            Full Name: <input type="text" name="full_name" value="<?= $student['full_name'] ?>" required><br>
-            Address: <input type="text" name="address" value="<?= $student['address'] ?>" required><br>
-            NIC: <input type="text" name="nic" value="<?= $student['nic'] ?>" required><br>
-            Phone: <input type="text" name="phone" value="<?= $student['phone'] ?>" required><br>
-            University Index: <input type="text" name="university_index" value="<?= $student['university_index'] ?>" required><br>
-            Guardian Name: <input type="text" name="guardian_name" value="<?= $student['guardian_name'] ?>" required><br>
-            Room Number: <input type="text" name="room_number" value="<?= $student['room_number'] ?>" required><br>
-            <button type="submit">Update Student</button>
-        </form>
+        <div class="card mb-4">
+            <div class="card-header">Student details</div>
+            <div class="card-body">
+
+                <table>
+                    <form method="POST">
+                        <tbody>
+                            <tr>
+                                <th>Full Name</th>
+                                <td><input type="text" class="form-control mr-2" name="full_name" value="<?= $student['full_name'] ?>" required></td>
+                            </tr>
+                            <tr>
+                                <th>Address</th>
+                                <td><input type="text" class="form-control mr-2" name="address" value="<?= $student['address'] ?>" required></td>
+                            </tr>
+                            <tr>
+                                <th>NIC</th>
+                                <td><input type="text" class="form-control mr-2" name="nic" value="<?= $student['nic'] ?>" required></td>
+                            </tr>
+                            <tr>
+                                <th>Phone</th>
+                                <td><input type="text" class="form-control mr-2" name="phone" value="<?= $student['phone'] ?>" required></td>
+                            </tr>
+                            <tr>
+                                <th>University Index</th>
+                                <td><input type="text" class="form-control mr-2" name="university_index" value="<?= $student['university_index'] ?>" required></td>
+                            </tr>
+                            <tr>
+                                <th>Guardian Name</th>
+                                <td><input type="text" class="form-control mr-2" name="guardian_name" value="<?= $student['guardian_name'] ?>" required></td>
+                            </tr>
+                            <tr>
+                                <th>Room Number</th>
+                                <td><input type="text" class="form-control mr-2" name="room_number" value="<?= $student['room_number'] ?>" required></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <button type="submit" class="btn btn-primary">Update Student</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </form>
+                </table>
+            </div>
+        </div>
 
         <div class="text-center">
             <a href="dashboard.php" class="btn btn-danger">Back to Dashboard</a>
