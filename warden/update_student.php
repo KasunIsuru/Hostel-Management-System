@@ -2,6 +2,7 @@
 session_start();
 $cssPath = "../styles/styles.css";
 include '../config/db.php';
+$message = "";
 
 if ($_SESSION['role'] != 'warden') {
     header("Location: ../login.php");
@@ -32,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt = $pdo->prepare("UPDATE students SET full_name = ?, address = ?, nic = ?, phone = ?, university_index = ?, guardian_name = ?, room_number = ? WHERE id = ?");
     $stmt->execute([$full_name, $address, $nic, $phone, $university_index, $guardian_name, $room_number, $student_id]);
 
-    echo "Student details updated successfully!";
+    $message = "Student details updated successfully!";
 }
 ?>
 
@@ -82,6 +83,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <?php include 'header.php'; ?>
     <div class="container">
         <h1 class="text-center mb-4">Update Student Details</h1>
+
+        <?php if ($message): ?>
+            <div class="alert alert-success text-center">
+                <?= htmlspecialchars($message) ?>
+            </div>
+        <?php endif; ?>
 
         <div class="card mb-4">
             <div class="card-header">Student details</div>
