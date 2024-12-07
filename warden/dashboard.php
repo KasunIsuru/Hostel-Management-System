@@ -54,33 +54,73 @@ if ($_SESSION['role'] != 'warden') {
 
 <body>
     <?php include 'header.php'; ?>
+
     <div class="container">
         <h1 class="text-center mb-4">Welcome, Warden</h1>
 
-        <div class="card mb-4">
-            <div class="card-body">
+        <table>
+            <tbody>
+                <tr>
+                    <div class="row gy-3">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="./images/img/warden.png" class="card-img-top" alt="USER LOGO" height="324px">
+                                <div class="card-body">
+                                    <center><a href="register_student.php" class="btn btn-primary">Register Student</a></center>
+                                </div>
+                            </div>
+                        </div>
 
-                <table>
-                    <tbody>
-                        <tr>
-                            <td><a href="register_student.php">Register Student</a></td>
-                            <td><a href="view_students.php">View/Search Students</a></td>
-                            <td><a href="room_management.php">Manage Rooms</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="view_late_requests.php">View Late Attendance Requests</a></td>
-                            <td colspan="3"><a href="security_attendance.php">Mark Security Attendance</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="../logout.php" class="btn btn-danger">Logout</a></td>
-                        </tr>
-                    </tbody>
-                </table>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="./images/img/Student.png" class="card-img-top" alt="USER LOGO" height="324px">
+                                <div class="card-body">
+                                    <center><a href="view_students.php" class="btn btn-primary">Register Student</a></center>
+                                </div>
+                            </div>
+                        </div>
 
-            </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="./images/img/Student.png" class="card-img-top" alt="USER LOGO" height="324px">
+                                <div class="card-body">
+                                    <center><a href="room_management.php" class="btn btn-primary">Student Login</a></center>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </tr>
+                <tr>
+                    <div class="row gy-3">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="./images/img/Student.png" class="card-img-top" alt="USER LOGO" height="324px">
+                                <div class="card-body">
+                                    <center><a href="view_late_requests.php" class="btn btn-primary">view_late_requests.php</a></center>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="./images/img/Student.png" class="card-img-top" alt="USER LOGO" height="324px">
+                                <div class="card-body">
+                                    <center><a href="security_attendance.php" class="btn btn-primary">Mark Security Attendance</a></center>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </tr>
+            </tbody>
+        </table>
+
+
+
+        <div class="text-center">
+            <a href="../logout.php" class="btn btn-danger">Logout</a>
         </div>
-
-
     </div>
 
     <!-- <a href="register_student.php">Register Student</a><br>
