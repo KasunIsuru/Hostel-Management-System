@@ -4,6 +4,7 @@ $cssPath = "../styles/styles.css";
 session_start();
 include '../config/db.php';
 
+$message = "";
 // Ensure the logged-in user is a student
 if (!isset($_SESSION['username']) || $_SESSION['role'] != 'student') {
     header("Location: ../login.php");
@@ -20,11 +21,11 @@ try {
     $student = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if (!$student) {
-        echo "<p style='color: red;'>No details found for this university index!</p>";
+        $message = "<p style='color: red;'>No details found for this university index!</p>";
         exit();
     }
 } catch (Exception $e) {
-    echo "<p style='color: red;'>Error: " . $e->getMessage() . "</p>";
+    $message = "<p style='color: red;'>Error: " . $e->getMessage() . "</p>";
     exit();
 }
 ?>
@@ -78,6 +79,12 @@ try {
 
     <div class="container">
         <h1 class="text-center mb-4">Student Details</h1>
+
+        <?php if ($message): ?>
+            <div class="alert alert-success text-center">
+                <?= htmlspecialchars($message) ?>
+            </div>
+        <?php endif; ?>
 
         <table>
             <tr>
