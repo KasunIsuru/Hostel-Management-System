@@ -136,7 +136,9 @@ try {
             </div>
 
         <?php else: ?>
-            <p>No furniture details available for this room.</p>
+            <div class="alert alert-success text-center">
+                <span>No furniture details available for this room</span>
+            </div>
         <?php endif; ?>
 
         <div class="text-center">
