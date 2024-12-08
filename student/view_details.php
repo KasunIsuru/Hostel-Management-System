@@ -86,37 +86,47 @@ try {
             </div>
         <?php endif; ?>
 
-        <table>
-            <tr>
-                <th>Full Name</th>
-                <td><?php echo htmlspecialchars($student['full_name']); ?></td>
-            </tr>
-            <tr>
-                <th>Address</th>
-                <td><?php echo htmlspecialchars($student['address']); ?></td>
-            </tr>
-            <tr>
-                <th>NIC</th>
-                <td><?php echo htmlspecialchars($student['nic']); ?></td>
-            </tr>
-            <tr>
-                <th>Phone</th>
-                <td><?php echo htmlspecialchars($student['phone']); ?></td>
-            </tr>
-            <tr>
-                <th>University Index</th>
-                <td><?php echo htmlspecialchars($student['university_index']); ?></td>
-            </tr>
-            <tr>
-                <th>Guardian Name</th>
-                <td><?php echo htmlspecialchars($student['guardian_name']); ?></td>
-            </tr>
-            <tr>
-                <th>Room Number</th>
-                <td><?php echo htmlspecialchars($student['room_number']); ?></td>
-            </tr>
-        </table>
-        <a class="back-btn" href="dashboard.php">Back to Dashboard</a>
+        <div class="card mb-4">
+            <div class="card-header">view details</div>
+            <div class="card-body">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Full Name</th>
+                            <td><?php echo htmlspecialchars($student['full_name']); ?></td>
+                        </tr>
+                        <tr>
+                            <th>Address</th>
+                            <td><?php echo htmlspecialchars($student['address']); ?></td>
+                        </tr>
+                        <tr>
+                            <th>NIC</th>
+                            <td><?php echo htmlspecialchars($student['nic']); ?></td>
+                        </tr>
+                        <tr>
+                            <th>Phone</th>
+                            <td><?php echo htmlspecialchars($student['phone']); ?></td>
+                        </tr>
+                        <tr>
+                            <th>University Index</th>
+                            <td><?php echo htmlspecialchars($student['university_index']); ?></td>
+                        </tr>
+                        <tr>
+                            <th>Guardian Name</th>
+                            <td><?php echo htmlspecialchars($student['guardian_name']); ?></td>
+                        </tr>
+                        <tr>
+                            <th>Room Number</th>
+                            <td><?php echo htmlspecialchars($student['room_number']); ?></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a href="dashboard.php" class="btn btn-danger">Back to Dashboard</a>
+        </div>
     </div>
     <?php include 'footer.php'; ?>
 </body>
