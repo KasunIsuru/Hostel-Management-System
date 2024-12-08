@@ -1,4 +1,5 @@
 <?php
+$cssPath = "../styles/styles.css";
 // Start session and include database configuration
 session_start();
 include '../config/db.php';
@@ -28,39 +29,56 @@ try {
 }
 ?>
 
+<!-- front end -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>View Student Details</title>
+    <link rel="stylesheet" href="<?php echo $cssPath; ?>">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        table {
-            border-collapse: collapse;
-            width: 50%;
-            margin: 20px auto;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f4f4f4;
-        }
         .container {
-            text-align: center;
+            max-width: auto;
+            margin: 0 auto;
+            padding: 20px;
         }
-        .back-btn {
-            margin-top: 20px;
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th,
+        table td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .message {
+            color: green;
+        }
+
+        .card-header {
+            color: #660097;
+            font-weight: bold;
+
         }
     </style>
 </head>
+
 <body>
+    <?php include 'header.php'; ?>
+
     <div class="container">
-        <h2>Student Details</h2>
+        <h1 class="text-center mb-4">Student Details</h1>
+
         <table>
             <tr>
                 <th>Full Name</th>
@@ -93,5 +111,7 @@ try {
         </table>
         <a class="back-btn" href="dashboard.php">Back to Dashboard</a>
     </div>
+    <?php include 'footer.php'; ?>
 </body>
+
 </html>
