@@ -19,6 +19,14 @@ if ($_SESSION['role'] != 'student') {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <style>
+        #card4 {
+            width: 350px;
+        }
+
+        .ml-5 {
+            margin-left: ($spacer * 50.25) !important;
+        }
+
         .container {
             max-width: auto;
             margin: 0 auto;
@@ -26,26 +34,8 @@ if ($_SESSION['role'] != 'student') {
 
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        table th,
-        table td {
-            padding: 10px;
-            text-align: center;
-            border: 1px solid #ddd;
-        }
-
-        .message {
-            color: green;
-        }
-
-        .card-header {
-            color: #660097;
-            font-weight: bold;
-
+        .card {
+            width: auto;
         }
     </style>
 </head>
@@ -61,7 +51,7 @@ if ($_SESSION['role'] != 'student') {
 
             <div class="col">
                 <div class="card text-center h-100 shadow-sm">
-                    <img src="./images/img/warden.png" class="card-img-top" alt="USER LOGO" height="324px">
+                    <img src="..\Images\img\student_img\View Your Details.png" class="card-img-top" alt="USER LOGO" height="324px">
                     <div class="card-body">
                         <center>
                             <a href="view_details.php" class="btn btn-primary">View Your Details</a>
@@ -72,7 +62,7 @@ if ($_SESSION['role'] != 'student') {
 
             <div class="col">
                 <div class="card text-center h-100 shadow-sm">
-                    <img src="./images/img/warden.png" class="card-img-top" alt="USER LOGO" height="324px">
+                    <img src="..\Images\img\student_img\View Room Details.png" class="card-img-top" alt="USER LOGO" height="324px">
                     <div class="card-body">
                         <center>
                             <a href="room_details.php" class="btn btn-primary">View Room Details</a>
@@ -83,10 +73,10 @@ if ($_SESSION['role'] != 'student') {
 
             <div class="col">
                 <div class="card text-center h-100 shadow-sm">
-                    <img src="./images/img/warden.png" class="card-img-top" alt="USER LOGO" height="324px">
+                    <img src="..\Images\img\student_img\Submit Late Attendance.png" class="card-img-top" alt="USER LOGO" height="324px">
                     <div class="card-body">
                         <center>
-                            <a href="late_request.php" class="btn btn-primary">Submit Late Attendance Request</a>
+                            <a href="late_request.php" class="btn btn-primary">Submit Late Attendance</a>
                         </center>
                     </div>
                 </div>
@@ -95,9 +85,9 @@ if ($_SESSION['role'] != 'student') {
 
         <!-- Second Row: 2 Cards -->
         <div class="row row-cols-1 row-cols-md-2 g-4 mt-4 mb-4">
-            <div class="col">
-                <div class="card text-center h-100 shadow-sm">
-                    <img src="./images/img/warden.png" class="card-img-top" alt="USER LOGO" height="324px">
+            <div class="col pl-5 ml-5">
+                <div class="card text-center h-100 shadow-sm " id="card4">
+                    <img src="..\Images\img\student_img\Change Password.png" class="card-img-top" alt="USER LOGO" height="324px">
                     <div class="card-body">
                         <center>
                             <a href="change_password.php" class="btn btn-primary">Change Password</a>
@@ -106,12 +96,12 @@ if ($_SESSION['role'] != 'student') {
                 </div>
             </div>
 
-            <div class="col">
-                <div class="card text-center h-100 shadow-sm">
-                    <img src="./images/img/warden.png" class="card-img-top" alt="USER LOGO" height="324px">
+            <div class="col pr-5 mr-5">
+                <div class="card text-center h-100 shadow-sm " id="card4">
+                    <img src="../Images/img/student_img/View Late Attendance.png" class="card-img-top" alt="USER LOGO" height="324px">
                     <div class="card-body">
                         <center>
-                            <a href="student_view_late_requests.php" class="btn btn-primary">View Late Attendance Request</a>
+                            <a href="student_view_late_requests.php" class="btn btn-primary">View Late Attendance</a>
                         </center>
                     </div>
                 </div>
@@ -124,14 +114,6 @@ if ($_SESSION['role'] != 'student') {
 
     </div>
 
-
-    <!-- <h1>Welcome, Student</h1>
-    <a href="view_details.php">View Your Details</a><br>
-    <a href="room_details.php">View Room Details</a><br>
-    <a href="late_request.php">Submit Late Attendance Request</a><br>
-    <a href="change_password.php">Change Password</a><br>
-    <a href="student_view_late_requests.php">View Late Attendance Request</a><br>
-    <a href="../logout.php">Logout</a> -->
     <?php include 'footer.php'; ?>
 
 </body>
