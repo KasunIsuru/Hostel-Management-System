@@ -1,5 +1,6 @@
 <?php
 // Start session and include database configuration
+$cssPath = "../styles/styles.css";
 session_start();
 include '../config/db.php';
 
@@ -38,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Submit Late Attendance Request</title>
@@ -45,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         body {
             font-family: Arial, sans-serif;
         }
+
         .container {
             max-width: 500px;
             margin: 50px auto;
@@ -53,41 +56,54 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
+
         h2 {
             text-align: center;
         }
+
         form {
             display: flex;
             flex-direction: column;
         }
-        label, textarea, button {
+
+        label,
+        textarea,
+        button {
             margin-bottom: 15px;
         }
-        textarea, button {
+
+        textarea,
+        button {
             padding: 10px;
             font-size: 14px;
         }
+
         button {
             background-color: #4CAF50;
             color: white;
             border: none;
             cursor: pointer;
         }
+
         button:hover {
             background-color: #45a049;
         }
+
         .message {
             text-align: center;
             margin-top: 10px;
         }
+
         .error {
             color: red;
         }
+
         .success {
             color: green;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h2>Submit Late Attendance Request</h2>
@@ -105,4 +121,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <a href="dashboard.php">Back to Dashboard</a>
     </div>
 </body>
+
 </html>
