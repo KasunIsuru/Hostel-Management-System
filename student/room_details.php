@@ -63,6 +63,7 @@ try {
             max-width: auto;
             margin: 0 auto;
             padding: 20px;
+
         }
 
         table {
@@ -104,9 +105,13 @@ try {
             <div class="card-header">Room details</div>
             <div class="card-body">
                 <table>
-                    <tbody>
+                    <thead>
                         <tr>
                             <th>Room Number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
                             <td><?php echo htmlspecialchars($room_number); ?></td>
                         </tr>
                     </tbody>

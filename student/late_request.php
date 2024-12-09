@@ -37,19 +37,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
+<!-- front end -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <title>Submit Late Attendance Request</title>
+    <link rel="stylesheet" href="<?php echo $cssPath; ?>">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
     <style>
         body {
             font-family: Arial, sans-serif;
         }
 
         .container {
-            max-width: 500px;
+            max-width: auto;
             margin: 50px auto;
             padding: 20px;
             border: 1px solid #ddd;
@@ -57,9 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        h2 {
-            text-align: center;
-        }
+
 
         form {
             display: flex;
@@ -101,25 +105,43 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         .success {
             color: green;
         }
+
+        .card-header {
+            color: #660097;
+            font-weight: bold;
+        }
     </style>
 </head>
 
 <body>
+    <?php include 'header.php'; ?>
     <div class="container">
-        <h2>Submit Late Attendance Request</h2>
+        <h1 class="text-center mb-4">Submit Late Attendance Request</h1>
+
         <?php if (isset($success_message)): ?>
-            <p class="message success"><?php echo $success_message; ?></p>
+            <p class="alert alert-success text-center"><?php echo $success_message; ?></p>
         <?php elseif (isset($error_message)): ?>
-            <p class="message error"><?php echo $error_message; ?></p>
+            <p class="alert alert-danger"><?php echo $error_message; ?></p>
         <?php endif; ?>
-        <form method="POST">
-            <label for="reason">Reason:</label>
-            <textarea id="reason" name="reason" rows="4" required></textarea>
-            <button type="submit">Submit Request</button>
-        </form>
-        <br>
-        <a href="dashboard.php">Back to Dashboard</a>
+
+
+        <div class="card mb-4">
+            <div class="card-header">Reason</div>
+            <div class="card-body">
+                <form method="POST">
+                    <textarea id="reason" name="reason" rows="4" required></textarea>
+                    <button type="submit">Submit Request</button>
+                </form>
+
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a href="dashboard.php" class="btn btn-danger">Back to Dashboard</a>
+        </div>
     </div>
+
+    <?php include 'footer.php'; ?>
 </body>
 
 </html>
