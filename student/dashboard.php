@@ -19,23 +19,11 @@ if ($_SESSION['role'] != 'student') {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <style>
-        #card4 {
-            width: 350px;
-        }
-
-        .ml-5 {
-            margin-left: ($spacer * 50.25) !important;
-        }
-
         .container {
             max-width: auto;
             margin: 0 auto;
             padding: 20px;
 
-        }
-
-        .card {
-            width: auto;
         }
     </style>
 </head>
@@ -47,10 +35,10 @@ if ($_SESSION['role'] != 'student') {
         <h1 class="text-center mb-4">Welcome, Student</h1>
 
         <!-- First Row: 3 Cards -->
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="row justify-content-center g-1">
 
-            <div class="col">
-                <div class="card text-center h-100 shadow-sm">
+            <div class="col-auto">
+                <div class="card text-center h-90 shadow-sm">
                     <img src="..\Images\img\student_img\View Your Details.png" class="card-img-top" alt="USER LOGO" height="324px">
                     <div class="card-body">
                         <center>
@@ -60,8 +48,8 @@ if ($_SESSION['role'] != 'student') {
                 </div>
             </div>
 
-            <div class="col">
-                <div class="card text-center h-100 shadow-sm">
+            <div class="col-auto">
+                <div class="card text-center h-90 shadow-sm">
                     <img src="..\Images\img\student_img\View Room Details.png" class="card-img-top" alt="USER LOGO" height="324px">
                     <div class="card-body">
                         <center>
@@ -71,8 +59,8 @@ if ($_SESSION['role'] != 'student') {
                 </div>
             </div>
 
-            <div class="col">
-                <div class="card text-center h-100 shadow-sm">
+            <div class="col-auto">
+                <div class="card text-center h-90 shadow-sm">
                     <img src="..\Images\img\student_img\Submit Late Attendance.png" class="card-img-top" alt="USER LOGO" height="324px">
                     <div class="card-body">
                         <center>
@@ -84,9 +72,10 @@ if ($_SESSION['role'] != 'student') {
         </div>
 
         <!-- Second Row: 2 Cards -->
-        <div class="row row-cols-1 row-cols-md-2 g-4 mt-4 mb-4">
-            <div class="col pl-5 ml-5 ">
-                <div class="card text-center h-100 shadow-sm " id="card4">
+        <div class="row justify-content-center g-1 mt-4 mb-4">
+
+            <div class="col-auto">
+                <div class="card text-center h-90 shadow-sm" id="card4">
                     <img src="..\Images\img\student_img\Change Password.png" class="card-img-top" alt="USER LOGO" height="324px">
                     <div class="card-body">
                         <center>
@@ -96,8 +85,8 @@ if ($_SESSION['role'] != 'student') {
                 </div>
             </div>
 
-            <div class="col pr-5 mr-5 ">
-                <div class="card text-center h-100 shadow-sm " id="card4">
+            <div class="col-auto">
+                <div class="card text-center h-90 shadow-sm" id="card4">
                     <img src="../Images/img/student_img/View Late Attendance.png" class="card-img-top" alt="USER LOGO" height="324px">
                     <div class="card-body">
                         <center>
