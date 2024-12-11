@@ -85,7 +85,7 @@ if ($_SESSION['role'] != 'student') {
 
         <!-- Second Row: 2 Cards -->
         <div class="row row-cols-1 row-cols-md-2 g-4 mt-4 mb-4">
-            <div class="col pl-5 ml-5">
+            <div class="col pl-5 ml-5 ">
                 <div class="card text-center h-100 shadow-sm " id="card4">
                     <img src="..\Images\img\student_img\Change Password.png" class="card-img-top" alt="USER LOGO" height="324px">
                     <div class="card-body">
@@ -96,7 +96,7 @@ if ($_SESSION['role'] != 'student') {
                 </div>
             </div>
 
-            <div class="col pr-5 mr-5">
+            <div class="col pr-5 mr-5 ">
                 <div class="card text-center h-100 shadow-sm " id="card4">
                     <img src="../Images/img/student_img/View Late Attendance.png" class="card-img-top" alt="USER LOGO" height="324px">
                     <div class="card-body">
