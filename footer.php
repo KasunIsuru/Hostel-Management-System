@@ -1,6 +1,7 @@
 <!-- footer.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,11 +80,12 @@
         }
     </style>
 </head>
+
 <body>
     <footer>
         <div class="footer-content">
             <div>
-            <img src="./images/img/logo uoc.png" alt="Footer Logo" class="footer-logo">    
+                <img src="./images/img/logo uoc.png" alt="Footer Logo" class="footer-logo">
                 <div class="social-links">
                     <a href="#twitter">Twitter</a>
                     <a href="#facebook">Facebook</a>
@@ -91,14 +93,14 @@
                     <a href="#youtube">YouTube</a>
                 </div>
             </div>
-            
+
             <div class="footer-links">
                 <h3>CONTACT US</h3>
                 <p>Faculty of Technology,<br>
-                University of Colombo,<br>
-                Mahanwatta, Pitipana,<br>
-                Homagama,<br>
-                Sri Lanka.</p>
+                    University of Colombo,<br>
+                    Mahanwatta, Pitipana,<br>
+                    Homagama,<br>
+                    Sri Lanka.</p>
             </div>
 
             <div class="footer-links">
@@ -117,4 +119,5 @@
         </div>
     </footer>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <?php
 session_start();
+$cssPath = "../styles/styles.css";
 include '../config/db.php';
 
 // Ensure the logged-in user is a student
@@ -42,31 +43,93 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
+<!-- front end -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Change Password</title>
-    
+    <link rel="stylesheet" href="<?php echo $cssPath; ?>">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <style>
+        .container {
+            max-width: auto;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th,
+        table td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .message {
+            color: green;
+        }
+
+        .card-header {
+            color: #660097;
+            font-weight: bold;
+
+        }
+    </style>
 </head>
+
 <body>
-    <h2>Change Password</h2>
-    <?= $message ?>
-    <form method="POST">
-        <div class="form-group">
-            <label for="current_password">Current Password:</label>
-            <input type="password" id="current_password" name="current_password" required>
+    <?php include 'header.php'; ?>
+
+    <div class="container">
+        <h1 class="text-center mb-4">Change Password</h1>
+
+        <?php if ($message): ?>
+            <div class="alert alert-success text-center">
+                <?= htmlspecialchars($message) ?>
+            </div>
+        <?php endif; ?>
+
+        <div class="card mb-4">
+            <div class="card-header">change password</div>
+            <div class="card-body">
+
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Current Password</th>
+                            <td> <input type="password" id="current_password" class="form-control mr-2" name="current_password" required></td>
+                        </tr>
+                        <tr>
+                            <th>New Password</th>
+                            <td> <input type="password" id="new_password" class="form-control mr-2" name="new_password" required></td>
+                        </tr>
+                        <tr>
+                            <th>Confirm New Password</th>
+                            <td> <input type="password" id="confirm_password" class="form-control mr-2" name="confirm_password" required></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><button type="submit" class="btn btn-primary">Change Password</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="new_password">New Password:</label>
-            <input type="password" id="new_password" name="new_password" required>
+
+        <div class="text-center">
+            <a href="dashboard.php" class="btn btn-danger">Back to Dashboard</a>
         </div>
-        <div class="form-group">
-            <label for="confirm_password">Confirm New Password:</label>
-            <input type="password" id="confirm_password" name="confirm_password" required>
-        </div>
-        <button type="submit">Change Password</button>
-    </form>
-    <a class="back-btn" href="dashboard.php">Back to Dashboard</a>
+    </div>
+
+    <?php include 'footer.php'; ?>
 </body>
+
 </html>

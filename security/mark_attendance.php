@@ -1,5 +1,7 @@
 <?php
+
 session_start();
+$cssPath = "../styles/styles.css";
 include '../config/db.php';
 
 // Check if the user is logged in as security
@@ -62,43 +64,109 @@ $stmt->execute(["%$search%", "%$search%"]);
 $students = $stmt->fetchAll();
 ?>
 
+<!-- front end -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Mark Student Attendance</title>
+    <link rel="stylesheet" href="<?php echo $cssPath; ?>">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <style>
+        .container {
+            max-width: auto;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th,
+        table td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .message {
+            color: green;
+        }
+
+        .card-header {
+            color: #660097;
+            font-weight: bold;
+
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Mark Student Attendance</h1>
+    <?php include 'header.php'; ?>
 
-    <?php if (!empty($message)) : ?>
-        <p style="color: <?= strpos($message, 'Error') === false ? 'green' : 'red' ?>;">
-            <?= htmlspecialchars($message) ?>
-        </p>
-    <?php endif; ?>
+    <div class="container">
+        <h1 class="text-center mb-4">Mark Student Attendance</h1>
 
-    <form method="POST">
-        <label for="university_index">Search Student:</label>
-        <select name="university_index" required>
-            <option value="">Select a Student</option>
-            <?php foreach ($students as $student): ?>
-                <option value="<?= htmlspecialchars($student['university_index']) ?>">
-                    <?= htmlspecialchars($student['full_name']) ?> (<?= htmlspecialchars($student['university_index']) ?>)
-                </option>
-            <?php endforeach; ?>
-        </select>
-        <br><br>
+        <?php if (!empty($message)) : ?>
+            <div class="alert alert-success text-center" style="color: <?= strpos($message, 'Error') === false ? 'green' : 'red' ?>;">
+                <?= htmlspecialchars($message) ?>
+            </div>
+        <?php endif; ?>
 
-        <label for="action">Action:</label>
-        <select name="action" required>
-            <option value="Check-In">Check-In</option>
-            <option value="Check-Out">Check-Out</option>
-        </select>
-        <br><br>
 
-        <button type="submit">Submit</button>
-    </form>
+        <div class="card mb-4">
+            <div class="card-header">Security Attendace</div>
+            <div class="card-body">
+                <table>
+                    <form method="POST">
+                        <thead>
+                            <tr>
+                                <th>Search Student</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <select class="form-control mr-2" name="university_index" required>
+                                        <option value="">Select a Student</option>
+                                        <?php foreach ($students as $student): ?>
+                                            <option value="<?= htmlspecialchars($student['university_index']) ?>">
+                                                <?= htmlspecialchars($student['full_name']) ?> (<?= htmlspecialchars($student['university_index']) ?>)
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-control mr-2" name="action" required>
+                                        <option value="Check-In">Check-In</option>
+                                        <option value="Check-Out">Check-Out</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </form>
+                </table>
+            </div>
+        </div>
 
-    <br><a href="dashboard.php">Back to Dashboard</a>
+        <div class="text-center">
+            <a href="dashboard.php" class="btn btn-danger">Back to Dashboard</a>
+        </div>
+
+    </div>
+    <?php include 'footer.php'; ?>
 </body>
+
 </html>
