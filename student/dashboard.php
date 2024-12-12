@@ -98,7 +98,7 @@ if ($_SESSION['role'] != 'student') {
         </div>
 
         <div class="text-center">
-            <a href="../logout.php" class="btn btn-danger">Back to Dashboard</a>
+            <a href="../logout.php" class="btn btn-danger">Logout</a>
         </div>
 
     </div>
