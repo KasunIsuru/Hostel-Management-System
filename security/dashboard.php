@@ -54,8 +54,6 @@ if ($_SESSION['role'] != 'security') {
         </div>
 
     </div>
-    <!-- <a href="mark_attendance.php">Mark Student Attendance</a><br>
-    <a href="../logout.php">Logout</a> -->
 
     <?php include 'footer.php'; ?>
 
