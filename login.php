@@ -48,12 +48,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         }
 
-        /* body,
-        html {
-            height: 100%;
-            font-family: Arial, Helvetica, sans-serif;
-        } */
-
         .bg-img {
             background-image: url("https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
             background-color: black;
@@ -79,11 +73,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         label {
             font-size: larger;
         }
-
-        /* 
-        .col {
-            align-content: center;
-        } */
 
 
         /* The flip box container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
