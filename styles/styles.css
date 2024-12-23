@@ -19,9 +19,6 @@ tr:nth-child(even) {
     background-color: #f2f2f2
 }
 
-h1 {
-    text-align: center;
-}
 
 a {
     text-decoration: none;
@@ -31,17 +28,13 @@ a:visited {
     text-decoration: none;
 }
 
-button {
+/* 
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
     background-color: white;
-    margin: 10px;
-    padding: 5px;
-    border-radius: 5px;
-    color: black;
-    border: 2px solid #008CBA;
-}
-
-button:hover {
-    background-color: #008CBA;
-    color: white;
-    border: 2px solid #008CBA;
-}
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+} */

@@ -62,6 +62,10 @@ try {
             border: 1px solid #ddd;
         }
 
+        table td {
+            width: 650px;
+        }
+
         .message {
             color: green;
         }

@@ -25,27 +25,6 @@ if ($_SESSION['role'] != 'warden') {
             max-width: auto;
             margin: 0 auto;
             padding: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        table th,
-        table td {
-            padding: 10px;
-            text-align: center;
-            border: 1px solid #ddd;
-        }
-
-        .message {
-            color: green;
-        }
-
-        .card-header {
-            color: #660097;
-            font-weight: bold;
 
         }
     </style>
@@ -56,66 +35,70 @@ if ($_SESSION['role'] != 'warden') {
     <?php include 'header.php'; ?>
 
     <div class="container">
-        <h1 class="text-center mb-4">Welcome, Warden</h1>
+        <h1 class="text-center mb-4">Welcome, Student</h1>
 
-        <table>
-            <tbody>
-                <tr>
-                    <div class="row gy-3">
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img src="./images/img/warden.png" class="card-img-top" alt="USER LOGO" height="324px">
-                                <div class="card-body">
-                                    <center><a href="register_student.php" class="btn btn-primary">Register Student</a></center>
-                                </div>
-                            </div>
-                        </div>
+        <!-- First Row: 3 Cards -->
+        <div class="row justify-content-center g-1">
 
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img src="./images/img/Student.png" class="card-img-top" alt="USER LOGO" height="324px">
-                                <div class="card-body">
-                                    <center><a href="view_students.php" class="btn btn-primary">Register Student</a></center>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img src="./images/img/Student.png" class="card-img-top" alt="USER LOGO" height="324px">
-                                <div class="card-body">
-                                    <center><a href="room_management.php" class="btn btn-primary">Student Login</a></center>
-                                </div>
-                            </div>
-                        </div>
+            <div class="col-auto">
+                <div class="card text-center h-90 shadow-sm">
+                    <img src="..\Images\img\student_img\View Your Details.png" class="card-img-top" alt="USER LOGO" height="324px">
+                    <div class="card-body">
+                        <center>
+                            <a href="register_student.php" class="btn btn-primary">register student</a>
+                        </center>
                     </div>
+                </div>
+            </div>
 
-                </tr>
-                <tr>
-                    <div class="row gy-3">
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img src="./images/img/Student.png" class="card-img-top" alt="USER LOGO" height="324px">
-                                <div class="card-body">
-                                    <center><a href="view_late_requests.php" class="btn btn-primary">view_late_requests.php</a></center>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img src="./images/img/Student.png" class="card-img-top" alt="USER LOGO" height="324px">
-                                <div class="card-body">
-                                    <center><a href="security_attendance.php" class="btn btn-primary">Mark Security Attendance</a></center>
-                                </div>
-                            </div>
-                        </div>
+            <div class="col-auto">
+                <div class="card text-center h-90 shadow-sm">
+                    <img src="..\Images\img\student_img\View Room Details.png" class="card-img-top" alt="USER LOGO" height="324px">
+                    <div class="card-body">
+                        <center>
+                            <a href="view_students.php" class="btn btn-primary">view students</a>
+                        </center>
                     </div>
+                </div>
+            </div>
 
-                </tr>
-            </tbody>
-        </table>
+            <div class="col-auto">
+                <div class="card text-center h-90 shadow-sm">
+                    <img src="..\Images\img\student_img\Submit Late Attendance.png" class="card-img-top" alt="USER LOGO" height="324px">
+                    <div class="card-body">
+                        <center>
+                            <a href="room_management.php" class="btn btn-primary">room management</a>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <!-- Second Row: 2 Cards -->
+        <div class="row justify-content-center g-1 mt-4 mb-4">
+
+            <div class="col-auto">
+                <div class="card text-center h-90 shadow-sm" id="card4">
+                    <img src="..\Images\img\student_img\Change Password.png" class="card-img-top" alt="USER LOGO" height="324px">
+                    <div class="card-body">
+                        <center>
+                            <a href="view_late_requests.php" class="btn btn-primary">late requests</a>
+                        </center>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-auto">
+                <div class="card text-center h-90 shadow-sm" id="card4">
+                    <img src="../Images/img/student_img/View Late Attendance.png" class="card-img-top" alt="USER LOGO" height="324px">
+                    <div class="card-body">
+                        <center>
+                            <a href="security_attendance.php" class="btn btn-primary">Mark Security Attendance</a>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
         <div class="text-center">
