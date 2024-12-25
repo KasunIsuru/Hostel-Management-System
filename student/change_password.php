@@ -18,9 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_SESSION['username']; // Logged-in student's username
 
     if (empty($current_password) || empty($new_password) || empty($confirm_password)) {
-        $message = "<p style='color: red;'>All fields are required!</p>";
+        $message = "All fields are required!";
     } elseif ($new_password !== $confirm_password) {
-        $message = "<p style='color: red;'>New password and confirm password do not match!</p>";
+        $message = "New password and confirm password do not match!";
     } else {
         try {
             // Fetch the current password for the logged-in user
@@ -29,15 +29,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if (!$user || $user['password'] !== $current_password) {
-                $message = "<p style='color: red;'>Current password is incorrect!</p>";
+                $message = "Current password is incorrect!";
             } else {
                 // Update the password
                 $stmt = $pdo->prepare("UPDATE users SET password = ? WHERE username = ? AND role = 'student'");
                 $stmt->execute([$new_password, $username]);
-                $message = "<p style='color: green;'>Password updated successfully!</p>";
+                $message = "Password updated successfully!";
             }
         } catch (Exception $e) {
-            $message = "<p style='color: red;'>Error: " . $e->getMessage() . "</p>";
+            $message =  "<p style='color: red;'>Error: " . $e->getMessage() . "</p>";
         }
     }
 }
@@ -103,23 +103,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="card-body">
 
                 <table>
-                    <tbody>
-                        <tr>
-                            <th>Current Password</th>
-                            <td> <input type="password" id="current_password" class="form-control mr-2" name="current_password" required></td>
-                        </tr>
-                        <tr>
-                            <th>New Password</th>
-                            <td> <input type="password" id="new_password" class="form-control mr-2" name="new_password" required></td>
-                        </tr>
-                        <tr>
-                            <th>Confirm New Password</th>
-                            <td> <input type="password" id="confirm_password" class="form-control mr-2" name="confirm_password" required></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><button type="submit" class="btn btn-primary">Change Password</button></td>
-                        </tr>
-                    </tbody>
+                    <form method="POST">
+                        <tbody>
+                            <tr>
+                                <th>Current Password</th>
+                                <td> <input type="password" id="current_password" class="form-control mr-2" name="current_password" required></td>
+                            </tr>
+                            <tr>
+                                <th>New Password</th>
+                                <td> <input type="password" id="new_password" class="form-control mr-2" name="new_password" required></td>
+                            </tr>
+                            <tr>
+                                <th>Confirm New Password</th>
+                                <td> <input type="password" id="confirm_password" class="form-control mr-2" name="confirm_password" required></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><button type="submit" class="btn btn-primary">Change Password</button></td>
+                            </tr>
+                        </tbody>
+                    </form>
                 </table>
             </div>
         </div>

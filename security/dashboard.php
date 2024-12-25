@@ -35,7 +35,7 @@ if ($_SESSION['role'] != 'security') {
         <h1 class="text-center mb-4">Welcome, Security</h1>
 
 
-        <div class="row justify-content-left g-1">
+        <div class="row justify-content-center g-1">
 
             <div class="col-auto">
                 <div class="card text-center h-90 shadow-sm">
@@ -50,7 +50,7 @@ if ($_SESSION['role'] != 'security') {
         </div>
 
         <div class="text-center">
-            <a href="../logout.php" class="btn btn-danger">Logout</a>
+            <a href="../logout.php" class="btn btn-danger mt-4">Logout</a>
         </div>
 
     </div>
