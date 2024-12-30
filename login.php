@@ -145,11 +145,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <!-- Column 1 -->
                 <div class="col p-3">
                     <div class="card">
-                        <!-- <img src="./Images/img/student_img/View Your Details.png" alt="USER LOGO" height="260px"> -->
                         <div class="flip-box">
                             <div class="flip-box-inner">
                                 <div class="flip-box-front">
-                                    <img src="./Images/img/student_img/loging card.png" alt="Paris" style="width:100%;height:260px">
+                                    <img src="./Images/img/student_img/welcome.png" alt="Paris" style="width:100%;height:260px">
                                 </div>
                                 <div class="flip-box-back">
                                     <h2>Hello</h2>
