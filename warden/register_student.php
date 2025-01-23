@@ -2,6 +2,7 @@
 session_start();
 $cssPath = "../styles/styles.css";
 include '../config/db.php';
+$message="";
 
 if ($_SESSION['role'] != 'warden') {
     header("Location: ../login.php");

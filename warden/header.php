@@ -12,6 +12,7 @@
         }
 
         header {
+            width: 100%;
             background-color: #660097;
             padding: 1rem 2rem;
             display: flex;
@@ -19,6 +20,7 @@
             align-items: center;
             font-family: Arial, sans-serif;
         }
+        
 
         .logo {
             width: auto;
@@ -57,6 +59,7 @@
                 gap: 1rem;
             }
         }
+       
     </style>
 </head>
 

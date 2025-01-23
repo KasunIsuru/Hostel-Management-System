@@ -2,7 +2,7 @@
 $host = 'localhost';
 $db = 'hostel_management';
 $user = 'root';
-$pass = '';
+$pass = 'root';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
